@@ -1,0 +1,14 @@
+{
+    "name": "jameshalsall/twilio",
+    "require": {
+        "twilio/sdk": "dev-master",
+        "silex/silex": "dev-master",
+        "symfony/yaml": "dev-master"
+    },
+    "authors": [
+        {
+            "name": "James Halsall",
+            "email": "jhalsall@rippleffect.com"
+        }
+    ]
+}

@@ -1,0 +1,31 @@
+#!/usr/bin/env php
+<?php
+
+require __DIR__ . '/../vendor/autoload.php';
+
+use Symfony\Component\Yaml\Yaml;
+
+/**
+ * App entry point
+ *
+ * @author  James Halsall <james.t.halsall@googlemail.com>
+ */
+
+$yaml = new Yaml();
+$parameters = $yaml->parse(__DIR__ . '/../config/parameters.yml');
+
+$twilio = new Services_Twilio($parameters['twilio']['sid'], $parameters['twilio']['token']);
+
+try {
+    $message = $twilio->account->messages->sendMessage(
+        $parameters['twilio']['from_number'],
+        "+447813010954",
+        'Test message'
+    );
+
+    echo "Sent message with ID #" . $message->sid . PHP_EOL;
+} catch (\Services_Twilio_RestException $e) {
+    echo $e->getMessage();
+}
+
+echo "Done" . PHP_EOL;
