@@ -19,7 +19,7 @@ $twilio = new Services_Twilio($parameters['twilio']['sid'], $parameters['twilio'
 try {
     $message = $twilio->account->messages->sendMessage(
         $parameters['twilio']['from_number'],
-        "+447813010954",
+        $parameters['twilio']['to_number'],
         'Test message'
     );
 

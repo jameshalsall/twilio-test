@@ -1,3 +1,5 @@
 twilio:
     sid: ~
     token: ~
+    from_number: ~
+    to_number: ~
