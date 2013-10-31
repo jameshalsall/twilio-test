@@ -21,7 +21,7 @@ try {
     $call = $twilio->account->calls->create(
         $parameters['twilio']['from_number'],
         $parameters['twilio']['to_number'],
-        'https://gist.github.com/jameshalsall/0fa07400bd607836fdef/raw/3e2582518f180df05681ac6a821c3649266d24ef/twilio-call.xml'
+        'http://jameshalsall.co.uk/libraries/twilio/calls/hello.xml'
     );
 
     $message = $twilio->account->messages->sendMessage(
