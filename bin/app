@@ -17,6 +17,13 @@ $parameters = $yaml->parse(__DIR__ . '/../config/parameters.yml');
 $twilio = new Services_Twilio($parameters['twilio']['sid'], $parameters['twilio']['token']);
 
 try {
+
+    $call = $twilio->account->calls->create(
+        $parameters['twilio']['from_number'],
+        $parameters['twilio']['to_number'],
+        'https://gist.github.com/jameshalsall/0fa07400bd607836fdef/raw/3e2582518f180df05681ac6a821c3649266d24ef/twilio-call.xml'
+    );
+
     $message = $twilio->account->messages->sendMessage(
         $parameters['twilio']['from_number'],
         $parameters['twilio']['to_number'],
